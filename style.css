@@ -1,63 +1,73 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
 @font-face {
     font-family: digital;
-    src: url('digital-7.ttf');
+    src: url('assert/font.ttf');
     font-weight: 900;
 }
-body {
- background-color: silver;
-}
-#container { padding: 20px 5px;}
-.calculator {
-    background-color: indigo;
-    padding: 12px 20px;
-    border-radius: 1rem;
-    width: 500px;
-    max-width: 100%;
-    margin: 20px auto;
-}
-.title {
-    text-align: center;
-    color: orangered;
-    font-family: cursive;
-}
-.screen {
-    background-color: darkolivegreen;
-    color: black;
-    border: 3px solid black;
-    border-radius: .5rem;
-    font-family: digital, cursive;
-    font-weight: bolder;
-    font-size: 35px;
-    height: 100px;
-    padding: 6px 10px;
-    margin: 25px 0;
-    overflow:hidden;
-}
-.answer {text-align: right;}
 
-#btnCont {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 30px;
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: digital, cursive;
+    max-width: 100%;
+    user-select: none;
 }
-#btnCont > tr > td {
-    width: 70px;
-    max-width: 20%;
-    height: 60px;
+body {
+ background: silver;
 }
-.btn {
-    font-family: digital;
-    font-size: 1.5rem;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    outline: 0;
-    background-color: teal;
-    color: aliceblue;
-    border-radius: 1rem;
+
+.calculator {
+  margin: 50px auto 10px;
+  width: 500px;
+  padding: 40px 20px 20px;
+  border-radius: 10px;
+  background-color: indigo;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(70px, 1fr) repeat(5, auto);
 }
-.btn:active {opacity: .7;}
+
+.calculator > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 12px 0;
+  border: 1px solid black;
+  outline: 0;
+  background-color: rgba(255, 255, 255, .75);
+  transition: background-color, 1s;
+}
+
+.calculator > button:hover {
+  background-color: rgba(255, 255, 255, .9);
+}
+
+.span-2 { grid-column: span 2; }
+
+.screen {
+  border: 2px solid black;
+  border-radius: 10px;
+  grid-column: 1 / -1;
+  background-color: darkolivegreen;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  align-items: flex-end;
+  word-wrap: break-word;
+  word-break: break-all;
+  min-height: 100px;
+  margin-bottom: 30px;
+}
+
+.previous-operand {
+  color: rgba(0,0,0,.75);
+  font-size: 1.5rem;
+  line-height: 1.2rem;
+}
+.current-operand {
+  color: black;
+  font-size: 2.5rem;
+  line-height: 2rem;
+}
